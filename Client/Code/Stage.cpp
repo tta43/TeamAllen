@@ -80,10 +80,13 @@ HRESULT CStage::Add_Environment_Layer(void)
 	{
 		for (int j = 0; j < 10; ++j)
 		{
-			pGameObject = CCube::Create(m_pDevice);
-			NULL_CHECK_RETURN(pGameObject, E_FAIL);
-			pGameObject->SetPos(D3DXVECTOR3(j * 2.f, i * 2.f, 10.f));
-			pLayer->AddObject(L"Cube", pGameObject);
+			for (int k = 0; k < 10; ++k)
+			{
+				pGameObject = CCube::Create(m_pDevice);
+				NULL_CHECK_RETURN(pGameObject, E_FAIL);
+				pGameObject->SetPos(D3DXVECTOR3(j * 2.f, i * 2.f, k * 2.f));
+				pLayer->AddObject(L"Cube", pGameObject);
+			}
 		}
 	}
 	
